@@ -1,0 +1,12 @@
+[Unit]
+Description=K3s-worker
+After=network.target
+
+[Service]
+Type=simple
+ExecStart= sudo /root/startasworker2.sh
+
+[Install]
+WantedBy=multi-user.target
+
+

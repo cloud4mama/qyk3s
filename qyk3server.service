@@ -1,0 +1,12 @@
+[Unit]
+Description=K3s
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/root/k3s server --docker
+
+[Install]
+WantedBy=multi-user.target
+
+
