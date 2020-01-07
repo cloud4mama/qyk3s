@@ -2,7 +2,7 @@
 #echo $#
 if [ $# -ne  1 ]; then
 	#echo "usage : parameter wrong!"
-	echo "usage : bash add_node.sh nodeip"
+	echo "usage : bash installk3sclient.sh nodeip"
 fi
 
 echo "scp  ./k3s  root@$1:/root/k3s" > a.sh
