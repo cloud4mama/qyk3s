@@ -39,13 +39,15 @@ verify_system() {
 	cp qyk3server.service /etc/systemd/system/qyk3server.service
 
 	systemctl daemon-reload
-	systemctl start
+	systemctl start qyk3server
 
-
+	sleep 30s
 
 	K3S_TOKEN=$(cat /var/lib/rancher/k3s/server/node-token)
 
 	K3S_SERVER_IPPORT=$1
-	echo "sudo ./k3s agent --server https://$K3S_SERVER_IPPORT --token $K3S_TOKEN" >startasworker.sh
-	#cp startasworkertemplate.sh startasworker.sh
+
+	echo $1 >serveripport.debug
+	echo "sudo ./k3s agent --server https://$K3S_SERVER_IPPORT --token $K3S_TOKEN" > startasworkertemplate.sh
+	cp startasworkertemplate.sh startasworker.sh
 }
