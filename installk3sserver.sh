@@ -49,7 +49,8 @@ verify_system() {
 	K3S_SERVER_IPPORT=$1
 
 	echo $1 >serveripport.debug
-	echo "sudo /root/k3s agent --docker --server https://$K3S_SERVER_IPPORT --token $K3S_TOKEN" > startasworkertemplate.sh
+	echo "#!/bin/sh" > startasworkertemplate.sh
+	echo "sudo /root/k3s agent --docker --server https://$K3S_SERVER_IPPORT --token $K3S_TOKEN" >> startasworkertemplate.sh
 	cp startasworkertemplate.sh /root/startasworker.sh
         chmod a+x /root/startasworker.sh
 }
