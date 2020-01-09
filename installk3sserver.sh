@@ -36,7 +36,8 @@ verify_system() {
     		echo "usage : bash $0 localip:localport "
 		exit
 	fi
-
+        cp k3s /root/
+	chmod a+x /root/k3s
 	cp qyk3server.service /etc/systemd/system/qyk3server.service
 
 	systemctl daemon-reload
