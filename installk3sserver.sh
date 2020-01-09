@@ -34,6 +34,7 @@ verify_system() {
 	if  [ $# -ne  1 ] ; then 
     		#echo "usage : parameter wrong!"
     		echo "usage : bash $0 localip:localport "
+		exit
 	fi
 
 	cp qyk3server.service /etc/systemd/system/qyk3server.service
